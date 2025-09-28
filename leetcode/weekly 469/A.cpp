@@ -39,3 +39,20 @@ int main() {
     }
     return 0;
 }
+
+class Solution {
+public:
+    vector<int> decimalRepresentation(int n) {
+        vector<int> ans;
+        int count = 0;
+        while(n != 0) {
+            int tmp = (n % 10) * pow(10, count);
+            if(tmp != 0) ans.push_back(tmp);
+            n /= 10;
+            count++;
+        }
+
+        sort(ans.rbegin(), ans.rend());
+        return ans;
+    }
+};
